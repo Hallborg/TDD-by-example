@@ -7,8 +7,12 @@ final class DollarTest extends Specification {
 	"Dollar" can {
 		"multiply a number" in {
 			val five = new Dollar(5)
-			five.times(2)
-			five.amount shouldEqual 10
+
+			val ten = five.times(2)
+			val fifteen = five.times(3)
+
+			ten.amount shouldEqual 10
+			fifteen.amount shouldEqual 15
 		}
 	}
 }
