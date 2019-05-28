@@ -8,11 +8,8 @@ final class DollarTest extends Specification {
 		"multiply a number" in {
 			val five = new Dollar(5)
 
-			val ten = five.times(2)
-			val fifteen = five.times(3)
-
-			ten.amount shouldEqual 10
-			fifteen.amount shouldEqual 15
+			five.times(2) shouldEqual new Dollar(10)
+			five.times(3) shouldEqual new Dollar(15)
 		}
 
 		"be equal to another instance of dollar" in {
