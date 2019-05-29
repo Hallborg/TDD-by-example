@@ -25,7 +25,7 @@ class FrancTest extends Specification {
 
 		"not be equal to a dollar" in {
 			val franc = Money.franc(5)
-			val dollar = new Dollar(5)
+			val dollar = Money.dollar(5)
 
 			franc shouldNotEqual dollar
 		}

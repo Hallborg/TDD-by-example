@@ -25,4 +25,10 @@ final class DollarTest extends Specification {
 			five shouldNotEqual six
 		}
 	}
+	"The currency of money" should {
+		"be available for all money implementation" in {
+			"USD" shouldEqual Money.dollar(1).currency
+			"CHF" shouldEqual Money.franc(1).currency
+		}
+	}
 }
