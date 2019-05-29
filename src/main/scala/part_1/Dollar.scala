@@ -1,9 +1,7 @@
 package part_1
 
-class Dollar(private val amount: Int) {
+class Dollar(private val anAmount: Int) extends Money(anAmount) {
 	def times(multiplier: Int):Dollar = {
 		new Dollar(amount * multiplier)
 	}
-
-	override def equals(obj: Any): Boolean = obj.asInstanceOf[Dollar].amount == this.amount
 }

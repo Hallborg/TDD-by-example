@@ -1,9 +1,7 @@
 package part_1
 
-class Franc(private val amount: Int) {
+class Franc(private val anAmount: Int) extends Money(anAmount){
 	def times(multiplier: Int): Franc = {
 		new Franc(amount * multiplier)
 	}
-
-	override def equals(obj: Any): Boolean = obj.asInstanceOf[Franc].amount == this.amount
 }
