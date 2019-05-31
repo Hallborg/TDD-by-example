@@ -31,4 +31,10 @@ final class DollarTest extends Specification {
 			"CHF" shouldEqual Money.franc(1).currency
 		}
 	}
+
+	"Money" can {
+		"be equal to a Franc" in {
+			new Money(10, "CHF") shouldEqual new Franc(10)
+		}
+	}
 }
