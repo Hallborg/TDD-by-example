@@ -2,14 +2,14 @@ package part_1
 
 import org.specs2.mutable.Specification
 
-final class DollarTest extends Specification {
+final class MoneyTest extends Specification {
 
 	"Dollar" can {
 		"multiply a number" in {
 			val five = Money.dollar(5)
 
-			five.times(2) shouldEqual Money.dollar(10)
-			five.times(3) shouldEqual Money.dollar(15)
+			five * 2 shouldEqual Money.dollar(10)
+			five * 3 shouldEqual Money.dollar(15)
 		}
 
 		"be equal to another instance of dollar" in {
@@ -24,6 +24,14 @@ final class DollarTest extends Specification {
 
 			five shouldNotEqual six
 		}
+
+		"not be equal to a franc" in {
+			val franc = Money.franc(5)
+			val dollar = Money.dollar(5)
+
+			dollar shouldNotEqual franc
+		}
+
 	}
 	"The currency of money" should {
 		"be available for all money implementation" in {
@@ -34,7 +42,7 @@ final class DollarTest extends Specification {
 
 	"Money" can {
 		"be equal to a Franc" in {
-			new Money(10, "CHF") shouldEqual new Franc(10)
+			new Money(10, "CHF") shouldEqual Money.franc(10)
 		}
 	}
 }
