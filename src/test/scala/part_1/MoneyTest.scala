@@ -72,4 +72,28 @@ final class MoneyTest extends Specification {
 
 		result shouldEqual Money.dollar(10)
 	}
+	"make addition on Sum" in {
+		val fiveDollars: Expression = Money.dollar(5)
+		val tenFrancs: Expression = Money.franc(10)
+		val bank = new Bank
+
+		bank.addRate("CHF", "USD", 2)
+		val sum = Sum(fiveDollars, tenFrancs) + fiveDollars
+		val result = bank.reduce(sum, "USD")
+
+		result shouldEqual Money.dollar(15)
+	}
+
+	"make multiplication on Sum" in {
+		val fiveDollars: Expression = Money.dollar(5)
+		val tenFrancs: Expression = Money.franc(10)
+		val bank = new Bank
+
+		bank.addRate("CHF", "USD", 2)
+		val sum = Sum(fiveDollars, tenFrancs) * 2
+		val result = bank.reduce(sum, "USD")
+
+		result shouldEqual Money.dollar(20)
+
+	}
 }
