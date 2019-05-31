@@ -32,6 +32,13 @@ final class MoneyTest extends Specification {
 			dollar shouldNotEqual franc
 		}
 
+		"add a dollar" in {
+			val five = Money.dollar(5)
+			val sum = five + five
+			val bank = new Bank
+			val reduced = bank.reduce(sum, "USD")
+			Money.dollar(10) shouldEqual reduced
+		}
 	}
 	"The currency of money" should {
 		"be available for all money implementation" in {
