@@ -23,6 +23,13 @@ class BankTest extends Specification {
 
 			result shouldEqual Money.dollar(1)
 		}
+		"be able to reduce two currencies" in {
+			val bank = new Bank
+			bank.addRate("CHF", "USD", 2)
 
+			val result = bank.reduce(Money.franc(2), "USD")
+
+			result shouldEqual Money.dollar(1)
+		}
 	}
 }
