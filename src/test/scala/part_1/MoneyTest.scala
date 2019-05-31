@@ -62,4 +62,14 @@ final class MoneyTest extends Specification {
 			new Money(10, "CHF") shouldEqual Money.franc(10)
 		}
 	}
+	"make addition with mixed currencies" in {
+		val fiveDollars: Expression = Money.dollar(5)
+		val tenFrancs: Expression = Money.franc(10)
+		val bank = new Bank
+
+		bank.addRate("CHF", "USD", 2)
+		val result = bank.reduce(fiveDollars + tenFrancs, "USD")
+
+		result shouldEqual Money.dollar(10)
+	}
 }

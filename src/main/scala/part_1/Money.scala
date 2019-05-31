@@ -1,9 +1,9 @@
 package part_1
 
 class Money(val amount: Int, val currency: String) extends Expression {
-	def *(multiplier: Int): Money = new Money(amount * multiplier, currency)
+	def *(multiplier: Int): Expression = new Money(amount * multiplier, currency)
 
-	def +(obj: Money): Expression = Sum(obj, this)
+	def +(obj: Expression): Expression = Sum(obj, this)
 
 	override def equals(obj: Any): Boolean = {
 		val money = obj.asInstanceOf[Money]
