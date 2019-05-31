@@ -39,6 +39,16 @@ final class MoneyTest extends Specification {
 			val reduced = bank.reduce(sum, "USD")
 			Money.dollar(10) shouldEqual reduced
 		}
+
+		"return a Sum" in {
+			val five = Money.dollar(5)
+
+			val result = five + five
+			val sum = result.asInstanceOf[Sum]
+
+			five shouldEqual sum.augend
+			five shouldEqual sum.addend
+		}
 	}
 	"The currency of money" should {
 		"be available for all money implementation" in {

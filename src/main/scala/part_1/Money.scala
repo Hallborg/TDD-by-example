@@ -1,10 +1,10 @@
 package part_1
 
-trait Expression
+class Money(val amount: Int, val currency: String) extends Expression {
+	def reduce(to: String): Money = new Money(amount, to)
 
-class Money(protected val amount: Int, val currency: String) extends Expression {
 	def *(multiplier: Int): Money = new Money(amount * multiplier, currency)
-	def +(obj: Money): Expression = new Money(obj.amount + this.amount, currency)
+	def +(obj: Money): Expression = Sum(obj , this)
 
 	override def equals(obj: Any): Boolean = {
 		val money = obj.asInstanceOf[Money]

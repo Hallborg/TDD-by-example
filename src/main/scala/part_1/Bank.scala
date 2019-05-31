@@ -1,6 +1,5 @@
 package part_1
 
 class Bank {
-	def reduce(source: Expression, to: String): Money = Money.dollar(10)
-
+	def reduce(source: Expression, to: String): Money = source.reduce(to)
 }
